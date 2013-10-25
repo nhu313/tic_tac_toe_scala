@@ -1,0 +1,4 @@
+[0m[[0minfo[0m] [0m[32mBoardSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mA Board [0m[0m
+[0m[[0minfo[0m] [0m[31m- available squares *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  Array(0, 1, 2, 3) did not equal <(), the Unit value> (BoardSpec.scala:12)[0m[0m
