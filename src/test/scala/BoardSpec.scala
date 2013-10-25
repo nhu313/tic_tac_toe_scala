@@ -12,7 +12,7 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     board = new Board(boardSize)
   }
 
-  describe("available squares") {
+  describe("Available squares") {
 
     it("has all the squares when the board is empty") {
       board.availableMoves must equal (List(0, 1, 2, 3))
@@ -30,7 +30,7 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     }
   }
 
-  describe("marking the board") {
+  describe("Marking the board") {
 
     it("marks the board with the value when the square is empty") {
       val move = 3
@@ -43,31 +43,28 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     //it("when the move is over the greater bound limit")
   }
 
-  describe("full board") {
+  describe("Full board") {
     it("when board is empty"){
-      board must not be ('full)
+      board must not be ('isFull)
     }
 
     it("is false when one square is marked"){
       board.mark(0, 'x')
-      board must not be ('full)
+      board must not be ('isFull)
     }
 
     it("is false when the board has one empty square") {
       markboard(0, (squares_size - 1))
-      board must not be ('full)
+      board must not be ('isFull)
     }
 
     it("is true when all the squares are marked"){
       markboard(0, squares_size)
-      board must be ('full)
+      board must be ('isFull)
     }
   }
 
-  describe("sets") {
-    // before{
-    //   board = new Board(3)
-    // }
+  describe("Sets") {
 
     it("returns row values") {
       board = new Board(3)

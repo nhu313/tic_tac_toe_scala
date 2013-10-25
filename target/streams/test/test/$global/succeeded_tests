@@ -1,4 +1,5 @@
 #Successful Tests
-#Thu Oct 24 21:26:06 CDT 2013
-ExampleSpec=1382667966589
-com.blogspot.nhu313.tictactoe.BoardSpec=1382667966609
+#Thu Oct 24 23:20:22 CDT 2013
+ExampleSpec=1382674822974
+com.blogspot.nhu313.tictactoe.RulesSpec=1382674822990
+com.blogspot.nhu313.tictactoe.BoardSpec=1382674822995

@@ -1,7 +1,9 @@
-[0m[[0mdebug[0m] [0mRunning TaskDef(ExampleSpec, sbt.SubclassFingerprintWrapper@5b693691, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.blogspot.nhu313.tictactoe.BoardSpec, sbt.SubclassFingerprintWrapper@5b693691, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.blogspot.nhu313.tictactoe.BoardSpec, sbt.SubclassFingerprintWrapper@582871ba, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.blogspot.nhu313.tictactoe.RulesSpec, sbt.SubclassFingerprintWrapper@582871ba, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(ExampleSpec, sbt.SubclassFingerprintWrapper@582871ba, false, [SuiteSelector])[0m
 [0m[[0mdebug[0m] [0mSummary for ScalaTest not available.[0m
-[0m[[0minfo[0m] [0mPassed: Total 13, Failed 0, Errors 0, Passed 13[0m
+[0m[[0minfo[0m] [0mPassed: Total 27, Failed 0, Errors 0, Passed 27[0m
 [0m[[0mdebug[0m] [0mPassed tests:[0m
 [0m[[0mdebug[0m] [0m	ExampleSpec[0m
 [0m[[0mdebug[0m] [0m	com.blogspot.nhu313.tictactoe.BoardSpec[0m
+[0m[[0mdebug[0m] [0m	com.blogspot.nhu313.tictactoe.RulesSpec[0m

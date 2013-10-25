@@ -4,7 +4,7 @@ import scala.collection.mutable.ListBuffer
 
 class Board(val size: Int) {
 	val squares = new Array[Char](size*size)
-  private val emptyValue = 0
+  val emptyValue = 0
 
   def availableMoves(): ListBuffer[Int] = {
     val moves = ListBuffer[Int]()
@@ -20,7 +20,7 @@ class Board(val size: Int) {
     squares(position) = marker
   }
 
-  def full(): Boolean = {
+  def isFull(): Boolean = {
     !squares.contains(emptyValue)
   }
 

@@ -1,16 +1,16 @@
 [0m[[0minfo[0m] [0m[32mBoardSpec:[0m[0m
-[0m[[0minfo[0m] [0m[32mavailable squares [0m[0m
+[0m[[0minfo[0m] [0m[32mAvailable squares [0m[0m
 [0m[[0minfo[0m] [0m[32m- has all the squares when the board is empty[0m[0m
 [0m[[0minfo[0m] [0m[32m- does not contain the square that is marked[0m[0m
 [0m[[0minfo[0m] [0m[32m- is empty when user marks all the squares[0m[0m
-[0m[[0minfo[0m] [0m[32mmarking the board [0m[0m
+[0m[[0minfo[0m] [0m[32mMarking the board [0m[0m
 [0m[[0minfo[0m] [0m[32m- marks the board with the value when the square is empty[0m[0m
-[0m[[0minfo[0m] [0m[32mfull board [0m[0m
+[0m[[0minfo[0m] [0m[32mFull board [0m[0m
 [0m[[0minfo[0m] [0m[32m- when board is empty[0m[0m
 [0m[[0minfo[0m] [0m[32m- is false when one square is marked[0m[0m
 [0m[[0minfo[0m] [0m[32m- is false when the board has one empty square[0m[0m
 [0m[[0minfo[0m] [0m[32m- is true when all the squares are marked[0m[0m
-[0m[[0minfo[0m] [0m[32msets [0m[0m
+[0m[[0minfo[0m] [0m[32mSets [0m[0m
 [0m[[0minfo[0m] [0m[32m- returns row values[0m[0m
 [0m[[0minfo[0m] [0m[32m- returns values by column[0m[0m
 [0m[[0minfo[0m] [0m[32m- returns diagonals[0m[0m
