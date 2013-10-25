@@ -12,3 +12,4 @@ test -deprecation
 set scalacOptions += "-deprecation"
 test
 ~test
+test

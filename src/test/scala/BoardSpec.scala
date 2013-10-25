@@ -64,8 +64,27 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     }
   }
 
-  describe("Sets") {
+  describe("Sets for 2x2 board") {
+    it("returns row values") {
+      mark_board_with_alphabet
+      board.rows must equal (Array(Array('a', 'b'),
+                                   Array('c', 'd')))
+    }
 
+    it("returns values by column"){
+      mark_board_with_alphabet
+      board.columns must equal (Array(Array('a', 'c'),
+                                      Array('b', 'd')))
+    }
+
+    it("returns diagonals"){
+      mark_board_with_alphabet
+      board.diagonals must equal (Array(Array('a', 'd'),
+                                        Array('b', 'c')))
+    }
+  }
+
+  describe("Sets for 3x3 board") {
     it("returns row values") {
       board = new Board(3)
       mark_board_with_alphabet
@@ -82,19 +101,18 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
                                       Array('c', 'f', 'i')))
     }
 
-
     it("returns diagonals"){
       board = new Board(3)
       mark_board_with_alphabet
       board.diagonals must equal (Array(Array('a', 'e', 'i'),
                                         Array('c', 'e', 'g')))
+    }
+  }
 
-    }
-     def mark_board_with_alphabet() {
-       for (i <- 'a' until 'j') {
-         board.mark(i - 'a', i)
-       }
-    }
+  def mark_board_with_alphabet() {
+   for (i <- 0 until board.squares.length) {
+     board.mark(i, (i + 'a').toChar)
+   }
   }
 
   def markboard(start:Int, end:Int){
