@@ -1,7 +1,6 @@
 package com.blogspot.nhu313.tictactoe
 
-import org.scalatest.FunSpec
-import org.scalatest.BeforeAndAfter
+import org.scalatest.{FunSpec, BeforeAndAfter}
 import org.scalatest.matchers.MustMatchers
 
 class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
@@ -14,7 +13,7 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
   describe("Available squares") {
 
     it("has all the squares when the board is empty") {
-      board.availableMoves must equal (List(0, 1, 2, 3))
+      board.availableMoves must equal (Seq(0, 1, 2, 3))
     }
 
     it("does not contain the square that is marked"){

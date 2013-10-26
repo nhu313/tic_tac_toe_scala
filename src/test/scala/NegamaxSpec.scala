@@ -1,7 +1,6 @@
 package com.blogspot.nhu313.tictactoe.strategy
 
-import org.scalatest.FunSpec
-import org.scalatest.BeforeAndAfter
+import org.scalatest.{FunSpec, BeforeAndAfter}
 import org.scalatest.matchers.MustMatchers
 
 import com.blogspot.nhu313.tictactoe.Board

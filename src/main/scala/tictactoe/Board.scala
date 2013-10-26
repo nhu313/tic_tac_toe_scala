@@ -1,32 +1,32 @@
 package com.blogspot.nhu313.tictactoe
 
-import scala.collection.mutable.ListBuffer
-
 class Board(val size: Int) {
 	val squares = new Array[Char](size*size)
   val emptyValue = 0.toChar
+  private val last_square = squares.length - 1
+  private val last_column = size - 1
 
   override def clone(): Board = {
     val board = new Board(size)
-    val clone_squares = board.squares
-    for (i <- 0 until squares.length) {
-      clone_squares(i) = squares(i)
-    }
+    copySquareValues(board)
     return board
+  }
+
+  private def copySquareValues(cloneBoard : Board) {
+    for (i <- 0 until squares.length) {
+      cloneBoard.squares(i) = squares(i)
+    }
   }
 
   def clear(position: Int) {
     squares(position) = emptyValue
   }
 
-  def availableMoves(): ListBuffer[Int] = {
-    val moves = ListBuffer[Int]()
-    for (i <- 0 until squares.length) {
-      if (squares(i) == emptyValue) {
-        moves += i
-      }
-    }
-    return moves
+  def availableMoves(): Seq[Int] = {
+    for {
+      i <- 0 to last_square
+      if squares(i) == emptyValue
+    } yield i
   }
 
   def mark(position: Int, marker: Char) {
@@ -42,9 +42,8 @@ class Board(val size: Int) {
   }
 
   def columns(): Array[Array[Char]] = {
-    val last_index = squares.length - 1
-    0.to(size - 1).map(col =>
-      col.to(last_index, size).map(row => squares(row)).toArray
+    0.to(last_column).map(col =>
+      col.to(last_square, size).map(row => squares(row)).toArray
     ).toArray
   }
 
@@ -57,8 +56,8 @@ class Board(val size: Int) {
   }
 
   private def topRightDiagonal(): Array[Char] = {
-    val last_col_index = size - 1
-    val diagonal_indexes = last_col_index.to(last_col_index * size, last_col_index)
+    val diagonal_indexes = last_column.to(last_column * size, last_column)
     diagonal_indexes.map(squares(_)).toArray
   }
+
 }

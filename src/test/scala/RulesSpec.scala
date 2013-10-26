@@ -1,7 +1,6 @@
 package com.blogspot.nhu313.tictactoe
 
-import org.scalatest.FunSpec
-import org.scalatest.BeforeAndAfter
+import org.scalatest.{FunSpec, BeforeAndAfter}
 import org.scalatest.matchers.MustMatchers
 
 class RulesSpec extends FunSpec with BeforeAndAfter with MustMatchers{
