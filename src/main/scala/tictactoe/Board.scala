@@ -4,7 +4,20 @@ import scala.collection.mutable.ListBuffer
 
 class Board(val size: Int) {
 	val squares = new Array[Char](size*size)
-  val emptyValue = 0
+  val emptyValue = 0.toChar
+
+  override def clone(): Board = {
+    val board = new Board(size)
+    val clone_squares = board.squares
+    for (i <- 0 until squares.length) {
+      clone_squares(i) = squares(i)
+    }
+    return board
+  }
+
+  def clear(position: Int) {
+    squares(position) = emptyValue
+  }
 
   def availableMoves(): ListBuffer[Int] = {
     val moves = ListBuffer[Int]()

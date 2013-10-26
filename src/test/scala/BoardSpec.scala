@@ -5,11 +5,10 @@ import org.scalatest.BeforeAndAfter
 import org.scalatest.matchers.MustMatchers
 
 class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
-  val boardSize = 2
   var board: Board = null
 
   before {
-    board = new Board(boardSize)
+    board = new Board(2)
   }
 
   describe("Available squares") {
@@ -38,7 +37,10 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
       board.squares must equal (Array(0, 0, 0, 'x'))
     }
 
-    // it("when the square is taken")
+    // it("when the square is taken"){
+    //   val move = 3
+    //   board.mark(move, 'x') must throws(IllegalArgumentException)
+    // }
     //it("when the move is under the lower bound limit")
     //it("when the move is over the greater bound limit")
   }
@@ -109,6 +111,24 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     }
   }
 
+  describe("clone") {
+    it("has the same size") {
+      board.clone.size must equal (board.size)
+    }
+
+    it("squares of the clone are equals") {
+      mark_board_with_alphabet
+      board.clone.squares must equal (board.squares)
+    }
+
+    it("does not change the original squares when clone change") {
+      val clone_board = board.clone
+      clone_board.mark(0, 'x')
+      board.squares(0) must not equal('x')
+    }
+
+  }
+
   def mark_board_with_alphabet() {
    for (i <- 0 until board.squares.length) {
      board.mark(i, (i + 'a').toChar)
@@ -122,6 +142,6 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
   }
 
   def squares_size()= {
-    boardSize * boardSize
+    board.size * board.size
   }
 }
