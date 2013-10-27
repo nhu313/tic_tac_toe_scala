@@ -15,7 +15,7 @@ class ConsoleUI {
     val squares = board.squares.zipWithIndex
 
     for(x <- squares){
-      val value = if (x._1 == board.emptyValue) x._2 else x._1
+      val value = if (x._1 == Marker.NONE) x._2 else x._1
 
       string = string + " | " + value
       if ((x._2 + 1) % board.size == 0){

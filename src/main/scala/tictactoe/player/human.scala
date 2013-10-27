@@ -1,8 +1,8 @@
 package com.blogspot.nhu313.tictactoe.player
 
-import com.blogspot.nhu313.tictactoe.{Board, Player}
+import com.blogspot.nhu313.tictactoe.{Board, Player, Marker}
 
-class Human(val name: String, val marker: Char) extends Player {
+class Human(val name: String, val marker: Marker) extends Player {
 
   def move(board: Board): Int = readInt()
 

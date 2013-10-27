@@ -6,8 +6,8 @@ import org.scalatest.matchers.MustMatchers
 class RulesSpec extends FunSpec with BeforeAndAfter with MustMatchers{
   var board: Board = null
   val rules = new Rules()
-  val player = 'x'
-  val opponent = 'o'
+  val player = Marker.X
+  val opponent = Marker.O
 
   before {
     board = new Board(2)
@@ -101,7 +101,7 @@ class RulesSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     markBoard(Array(1, 4, 6, 8), player)
   }
 
-  private def markBoard(moves: Array[Int], marker: Char){
+  private def markBoard(moves: Array[Int], marker: Marker){
     moves.foreach(board.mark(_, marker))
   }
 }

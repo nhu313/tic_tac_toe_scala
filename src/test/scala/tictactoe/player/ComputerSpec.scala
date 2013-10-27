@@ -3,12 +3,12 @@ package com.blogspot.nhu313.tictactoe.player
 import org.scalatest.{FunSpec, BeforeAndAfter}
 import org.scalatest.matchers.MustMatchers
 
-import com.blogspot.nhu313.tictactoe.Board
+import com.blogspot.nhu313.tictactoe.{Board, Marker}
 
 class ComputerSpec extends FunSpec with BeforeAndAfter with MustMatchers{
   var board: Board = null
-  val humanMarker = 'x'
-  var computer = new Computer("Computer", 'o')
+  val humanMarker = Marker.X
+  var computer = new Computer("Computer", Marker.O)
 
   before {
     board = new Board(3)
@@ -115,7 +115,7 @@ class ComputerSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     computer.move(board) must equal (7)
   }
 
-  def markboard(moves: Array[Int], marker: Char){
+  def markboard(moves: Array[Int], marker: Marker){
     moves.foreach{
       board.mark(_ , marker)
     }

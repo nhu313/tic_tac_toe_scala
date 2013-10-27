@@ -6,8 +6,8 @@ class Game {
     val ui = new ConsoleUI
     val board = new Board(2)
 
-    val player1 = PlayerFactory.create("Human", 'x')
-    val player2 = PlayerFactory.create("Computer", 'o')
+    val player1 = PlayerFactory.create("Human", Marker.X)
+    val player2 = PlayerFactory.create("Computer", Marker.O)
 
     println("Let's play some Tic Tac Toe!")
     println("Please select a square")
