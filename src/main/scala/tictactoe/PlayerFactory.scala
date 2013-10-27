@@ -1,15 +1,17 @@
 package com.blogspot.nhu313.tictactoe
 
-import com.blogspot.nhu313.tictactoe.strategy.{Negamax, UserInput}
+import com.blogspot.nhu313.tictactoe.player.{Computer, Human}
 
 object PlayerFactory{
 
-  def create(type: String, marker: Char) = type match {
-    case "Computer" => new ComputerPlayer(marker)
-    case "Human" => new HumanPlayer(marker)
+  def create(playerType: String, marker: Char) = playerType match {
+    case "Computer" => new Computer("Computer", marker)
+    case "Human" => new Human("You", marker)
   }
 }
 
-private class HumanPlayer(val marker: Char) extends UserInput
-private class ComputerPlayer(val marker: Char) extends Negamax
-
+trait Player{
+  def marker: Char
+  def name: String
+  def move(board: Board): Int
+}

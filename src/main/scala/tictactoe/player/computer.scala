@@ -1,9 +1,10 @@
-package com.blogspot.nhu313.tictactoe.strategy
-import com.blogspot.nhu313.tictactoe.Board
-import com.blogspot.nhu313.tictactoe.Rules
+package com.blogspot.nhu313.tictactoe.player
 
-class Negamax(val marker: Char) {
-  val rules = new Rules()
+import com.blogspot.nhu313.tictactoe.{Board, Rules, Player}
+
+class Computer(val name: String, val marker: Char) extends Player {
+
+  private val rules = new Rules()
 
   def move(board: Board): Int = negamax(marker, board, 0)._1
 
@@ -30,7 +31,7 @@ class Negamax(val marker: Char) {
 
   private def opponent(player: Char): Char = if (player == 'x') 'o' else 'x'
 
-  def score(player: Char, winner: Option[Char]): Int = winner match {
+  private def score(player: Char, winner: Option[Char]): Int = winner match {
     case Some(`player`) => 1000
     case None => 0
     case _ => -1000

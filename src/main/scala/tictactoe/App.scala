@@ -1,3 +1,6 @@
+package com.blogspot.nhu313.tictactoe
+
 object Main extends App {
-  Console.println("Hello World!")
+  val game = new Game
+  game.start
 }
