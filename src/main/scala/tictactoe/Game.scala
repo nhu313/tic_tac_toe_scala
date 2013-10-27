@@ -1,24 +1,24 @@
 package com.blogspot.nhu313.tictactoe
 
-class Game {
+class Game(val players: Array[Player]) {
+  val rules = new Rules
+  val ui = new ConsoleUI
+  var currentPlayer = players(0)
 
   def start() {
-    val ui = new ConsoleUI
-    val board = new Board(2)
-
-    val player1 = PlayerFactory.create("Human", Marker.X)
-    val player2 = PlayerFactory.create("Computer", Marker.O)
+    val board = new Board(3)
 
     println("Let's play some Tic Tac Toe!")
-    println("Please select a square")
+    while(!rules.isGameOver(board)){
+      println(currentPlayer.name + "(" + currentPlayer.marker + "), please select a square")
+      ui.display(board)
+      board.mark(currentPlayer.move(board), currentPlayer.marker)
+      changePlayer
+    }
     ui.display(board)
-    board.mark(player1.move(board), player1.marker)
-    ui.display(board)
-    board.mark(player2.move(board), player2.marker)
-    ui.display(board)
-    board.mark(player1.move(board), player1.marker)
-
-
   }
 
+  def changePlayer(){
+    currentPlayer = if (currentPlayer == players(0)) players(1) else players(0)
+  }
 }

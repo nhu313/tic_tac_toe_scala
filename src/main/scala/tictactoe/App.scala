@@ -1,6 +1,7 @@
 package com.blogspot.nhu313.tictactoe
 
 object Main extends App {
-  val game = new Game
+  val gameFactory = new GameFactory
+  val game = gameFactory.create(1)
   game.start
 }
