@@ -7,5 +7,7 @@ trait IO {
 }
 
 object IO {
-  def apply() = new ConsoleIO()
+  val io: IO = null
+
+  def apply(): IO = if (io == null) new ConsoleIO() else io
 }

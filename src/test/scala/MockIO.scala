@@ -5,9 +5,17 @@ import scala.collection.mutable.ListBuffer
 class MockIO extends IO {
   var contents = ""
   var inputInteger = ListBuffer[Int]()
+  var inputString = ListBuffer[String]()
 
   def display(content: String){
     contents = contents + content
+  }
+
+  def readString(): String = {
+    if (inputString.isEmpty){
+      inputString += ""
+    }
+    inputString.remove(0)
   }
 
   def readInteger(): Int = {
@@ -25,3 +33,7 @@ class MockIO extends IO {
     inputInteger += number
   }
 }
+
+// object IO{
+//   def apply() = MockIO
+// }

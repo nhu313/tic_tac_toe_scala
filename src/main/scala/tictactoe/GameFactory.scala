@@ -8,8 +8,8 @@ class GameFactory {
 
   def types() = {
     for {
-      x <- playerFactory.playerTypes
-      y <- playerFactory.playerTypes
+      x <- playerFactory.types
+      y <- playerFactory.types
     } yield Tuple2(x, y)
   }
 
