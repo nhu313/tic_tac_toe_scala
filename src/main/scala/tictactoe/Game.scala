@@ -2,7 +2,7 @@ package com.blogspot.nhu313.tictactoe
 
 class Game(val players: Array[Player]) {
   val rules = new Rules
-  val ui = new ConsoleUI
+  val ui = new UI(new ConsoleIO)
   var currentPlayer = players(0)
 
   def start() {
@@ -15,6 +15,7 @@ class Game(val players: Array[Player]) {
       board.mark(currentPlayer.move(board), currentPlayer.marker)
       changePlayer
     }
+    println("It")
     ui.display(board)
   }
 
