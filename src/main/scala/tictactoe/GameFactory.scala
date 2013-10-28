@@ -1,6 +1,8 @@
 package com.blogspot.nhu313.tictactoe
 
-object GameFactory {
+class GameFactory {
+
+  def isValidType(selection: Int) = selection > 0 && selection <= types.length
 
   def types() = {
     for {

@@ -1,8 +1,8 @@
 package com.blogspot.nhu313.tictactoe
 
 class ConsoleIO extends IO {
-  def display(message: String){
-    println(message)
+  def display(content: String){
+    println(content)
   }
 
   def readInteger(): Int = {

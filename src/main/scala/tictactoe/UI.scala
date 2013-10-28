@@ -1,6 +1,7 @@
 package com.blogspot.nhu313.tictactoe
 
 class UI(private val io: IO) {
+  val gameFactory = new GameFactory()
 
   def displayWelcomeMessage() {
     io.display("Let's play some Tic Tac Toe!\n")
@@ -10,6 +11,10 @@ class UI(private val io: IO) {
     io.display(playerInfo(player) + ", please select a square:")
   }
 
+  def displayAnotherGame(){
+    io.display("Would you like to play another game? (y/n)")
+  }
+
   def gameType(): Int = {
     io.display("Please enter a game type from the list.")
     io.display(buildGameTypes())
@@ -17,7 +22,7 @@ class UI(private val io: IO) {
   }
 
   private def buildGameTypes(): String = {
-    val gameTypes = GameFactory.types
+    val gameTypes = gameFactory.types
     var content = ""
     for(i <- 0 until gameTypes.length){
       var playerTypes = gameTypes(i)

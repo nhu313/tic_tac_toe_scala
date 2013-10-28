@@ -8,15 +8,28 @@ class Game(val players: Array[Player]) {
   def start() {
     val board = new Board(3)
 
-    println("Let's play some Tic Tac Toe!")
     while(!rules.isGameOver(board)){
-      println(currentPlayer.name + "(" + currentPlayer.marker + "), please select a square")
+      ui.displayPlayerTurn(currentPlayer)
       ui.display(board)
       board.mark(currentPlayer.move(board), currentPlayer.marker)
       changePlayer
     }
-    println("It")
+    displayResult(board)
     ui.display(board)
+  }
+
+  def displayResult(board: Board){
+    val winner = rules.winner(board)
+    if(winner == None){
+      ui.displayDraw()
+    } else {
+      ui.displayWinner(player(winner.head))
+    }
+  }
+
+  def player(marker: Marker): Player = {
+    changePlayer
+    currentPlayer
   }
 
   def changePlayer(){

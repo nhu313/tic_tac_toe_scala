@@ -1,6 +1,6 @@
 package com.blogspot.nhu313.tictactoe
 
 trait IO {
-  def display(message: String)
+  def display(content: String)
   def readInteger(): Int
 }
