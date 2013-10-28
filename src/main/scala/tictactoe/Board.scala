@@ -17,6 +17,13 @@ class Board(val size: Int) {
     }
   }
 
+  def isValidMove(move: Int): Boolean = {
+    if (move < 0 || move >= squares.length){
+      return false
+    }
+    return squares(move) == Marker.NONE
+  }
+
   def clear(position: Int) {
     squares(position) = Marker.NONE
   }

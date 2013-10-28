@@ -151,6 +151,26 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
 
   }
 
+  describe("Valid move"){
+    it("is valid when square is not mark"){
+      assert(board.isValidMove(0))
+    }
+
+    it("is invalid when square is mark"){
+      val move = 3
+      board.mark(move, playerMarker)
+      assert(board.isValidMove(move) == false)
+    }
+
+    it("is invalid when move is smaller than the first square"){
+      assert(board.isValidMove(-1) == false)
+    }
+
+    it("is invalid when move is greater than the last square"){
+      assert(board.isValidMove(squareLength) == false)
+    }
+  }
+
   def markboard(moves: Array[Int], marker: Marker){
     for(i <- moves){
       board.mark(i, marker)

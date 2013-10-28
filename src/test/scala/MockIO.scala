@@ -33,7 +33,3 @@ class MockIO extends IO {
     inputInteger += number
   }
 }
-
-// object IO{
-//   def apply() = MockIO
-// }
