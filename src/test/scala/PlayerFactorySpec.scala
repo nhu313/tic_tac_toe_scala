@@ -16,7 +16,7 @@ class PlayerFactorySpec extends FunSpec with BeforeAndAfter with MustMatchers{
     it("create a human player"){
       val marker = Marker.X
       val player = playerFactory.create(playerFactory.Human, marker)
-      player.isInstanceOf[HumanPlayer] must equal (true)
+      assert(player.isInstanceOf[HumanPlayer])
     }
 
     it("has the marker passed in"){
@@ -34,7 +34,7 @@ class PlayerFactorySpec extends FunSpec with BeforeAndAfter with MustMatchers{
     it("create a Computer player"){
       val marker = Marker.O
       val player = playerFactory.create(playerFactory.Computer, marker)
-      player.isInstanceOf[ComputerPlayer] must equal (true)
+      assert(player.isInstanceOf[ComputerPlayer])
     }
 
     it("has the marker passed in"){

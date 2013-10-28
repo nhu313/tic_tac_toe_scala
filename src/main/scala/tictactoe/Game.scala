@@ -4,10 +4,9 @@ class Game(val players: Array[Player]) {
   private val rules = new Rules
   private val ui = new GameUI
   private var currentPlayer = players(0)
+  val board = new Board(3)
 
-  def start() {
-    val board = new Board(3)
-
+  def play() {
     while(!rules.isGameOver(board)){
       ui.displayPlayerTurn(currentPlayer)
       ui.display(board)
@@ -18,7 +17,7 @@ class Game(val players: Array[Player]) {
     displayResult(board)
   }
 
-  def displayResult(board: Board){
+  private def displayResult(board: Board){
     val winner = rules.winner(board)
     if(winner == None){
       ui.displayDraw()
@@ -27,12 +26,11 @@ class Game(val players: Array[Player]) {
     }
   }
 
-  def player(marker: Marker): Player = {
-    changePlayer
-    currentPlayer
+  private def player(marker: Marker): Player = {
+    if(marker == players(0).marker) players(0) else players(1)
   }
 
-  def changePlayer(){
+  private def changePlayer(){
     currentPlayer = if (currentPlayer == players(0)) players(1) else players(0)
   }
 }

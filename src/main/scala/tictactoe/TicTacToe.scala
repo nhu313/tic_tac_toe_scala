@@ -5,19 +5,19 @@ class TicTacToe {
   private val gameFactory = new GameFactory
   private val ContinuePlaying = "y"
 
-  def play() {
+  def start() {
     ui.displayWelcomeMessage
 
     var continue = ContinuePlaying
     while (continue == ContinuePlaying){
       var game = gameFactory.create(validGameType)
-      game.start
+      game.play
       ui.displayAnotherGame
       continue = ui.userInput.toLowerCase()
     }
   }
 
-  def validGameType(): Int = {
+  private def validGameType(): Int = {
     var gameType = ui.gameType(gameFactory.types)
     while(!gameFactory.isValidType(gameType)){
       ui.displayInvalidGameType

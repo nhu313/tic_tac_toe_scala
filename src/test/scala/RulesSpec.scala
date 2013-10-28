@@ -64,7 +64,8 @@ class RulesSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     }
 
     it("doesn't have a winner when it's a draw"){
-      create_draw_board
+      board = new Board(3)
+      BoardStateHelper.setDraw(board)
       rules.winner(board) must equal (None)
     }
   }
@@ -85,20 +86,11 @@ class RulesSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     }
 
     it("is over when it's a draw"){
-      create_draw_board
+      board = new Board(3)
+      BoardStateHelper.setDraw(board)
       rules.isGameOver(board) must be (true)
     }
 
-  }
-
-  private def create_draw_board(){
-    // o, x, o,
-    // o, x, o,
-    // x, o, x
-
-    board = new Board(3)
-    markBoard(Array(0, 2, 3, 5, 7), opponent)
-    markBoard(Array(1, 4, 6, 8), player)
   }
 
   private def markBoard(moves: Array[Int], marker: Marker){
