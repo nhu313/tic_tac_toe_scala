@@ -2,13 +2,16 @@ package com.blogspot.nhu313.tictactoe
 
 import com.blogspot.nhu313.tictactoe.player.{Computer, Human}
 
-object PlayerFactory{
+class PlayerFactory {
 
-  def playerTypes = Array("Computer", "Human")
+  private val Computer = "Computer"
+  private val Human = "Human"
+
+  val playerTypes = Array(Computer, Human)
 
   def create(playerType: String, marker: Marker) = playerType match {
-    case "Computer" => new Computer("Computer", marker)
-    case "Human" => new Human("Player", marker)
+    case Computer => new Computer(Computer, marker)
+    case Human => new Human(Human, marker)
   }
 }
 

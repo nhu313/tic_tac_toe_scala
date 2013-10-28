@@ -14,4 +14,6 @@ class ConsoleIO extends IO {
         readInteger()
     }
   }
+
+  def readString(): String = readLine()
 }

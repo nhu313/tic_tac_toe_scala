@@ -1,9 +1,9 @@
 package com.blogspot.nhu313.tictactoe
 
 class Game(val players: Array[Player]) {
-  val rules = new Rules
-  val ui = new UI(new ConsoleIO)
-  var currentPlayer = players(0)
+  private val rules = new Rules
+  private val ui = new GameUI
+  private var currentPlayer = players(0)
 
   def start() {
     val board = new Board(3)
@@ -14,8 +14,8 @@ class Game(val players: Array[Player]) {
       board.mark(currentPlayer.move(board), currentPlayer.marker)
       changePlayer
     }
-    displayResult(board)
     ui.display(board)
+    displayResult(board)
   }
 
   def displayResult(board: Board){
