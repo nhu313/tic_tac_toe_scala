@@ -11,7 +11,7 @@ class PlayerFactory {
 
   def create(playerType: String, marker: Marker) = playerType match {
     case Computer => new ComputerPlayer(Computer, marker)
-    case Human => new HumanPlayer(Human, marker)
+    case Human => new HumanPlayer("Player", marker)
   }
 }
 

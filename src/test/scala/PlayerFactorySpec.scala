@@ -24,9 +24,9 @@ class PlayerFactorySpec extends FunSpec with BeforeAndAfter with MustMatchers{
       player.marker must equal (Marker.O)
     }
 
-    it("name is its type"){
+    it("name is Player"){
       val player = playerFactory.create(playerFactory.Human, Marker.O)
-      player.name must equal("Human")
+      player.name must equal("Player")
     }
   }
 
