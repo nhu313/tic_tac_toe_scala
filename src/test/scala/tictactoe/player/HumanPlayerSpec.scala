@@ -2,6 +2,7 @@ package com.blogspot.nhu313.tictactoe.player
 
 import org.scalatest.{FunSpec, BeforeAndAfter}
 import org.scalatest.matchers.MustMatchers
+
 import com.blogspot.nhu313.tictactoe.{Marker, Board, IO}
 import com.blogspot.nhu313.tictactoe.mock.MockIO
 

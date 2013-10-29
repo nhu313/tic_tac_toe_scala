@@ -4,13 +4,15 @@ import scala.collection.mutable.ListBuffer
 import com.blogspot.nhu313.tictactoe.IO
 
 class MockIO extends IO {
-  var contents = ""
+  private var _contents = new StringBuilder()
   var inputInteger = ListBuffer[Int]()
   var inputString = ListBuffer[String]()
 
   def display(content: String){
-    contents = contents + content
+    _contents.append(content)
   }
+
+  def contents = _contents.toString()
 
   def readString(): String = {
     if (inputString.isEmpty){
@@ -24,10 +26,6 @@ class MockIO extends IO {
       inputInteger += 1
     }
     inputInteger.remove(0)
-  }
-
-  def hasContent(content: String): Boolean = {
-    contents.indexOf(content) != -1
   }
 
   def addInputInteger(number: Int){

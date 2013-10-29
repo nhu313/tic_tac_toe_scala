@@ -2,6 +2,7 @@ package com.blogspot.nhu313.tictactoe
 
 import org.scalatest.{FunSpec, BeforeAndAfter}
 import org.scalatest.matchers.MustMatchers
+
 import com.blogspot.nhu313.tictactoe.Marker._
 
 class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
