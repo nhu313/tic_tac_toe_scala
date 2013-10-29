@@ -1,6 +1,7 @@
-package com.blogspot.nhu313.tictactoe
+package com.blogspot.nhu313.tictactoe.mock
 
 import scala.collection.mutable.ListBuffer
+import com.blogspot.nhu313.tictactoe.IO
 
 class MockIO extends IO {
   var contents = ""
@@ -31,5 +32,9 @@ class MockIO extends IO {
 
   def addInputInteger(number: Int){
     inputInteger += number
+  }
+
+  def addInputString(value: String){
+    inputString += value
   }
 }

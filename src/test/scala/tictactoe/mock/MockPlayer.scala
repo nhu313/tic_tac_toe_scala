@@ -1,4 +1,4 @@
-package com.blogspot.nhu313.tictactoe.player
+package com.blogspot.nhu313.tictactoe.mock
 
 import com.blogspot.nhu313.tictactoe.{Player, Marker, Board}
 

@@ -3,7 +3,7 @@ package com.blogspot.nhu313.tictactoe
 import org.scalatest.{FunSpec, BeforeAndAfter}
 import org.scalatest.matchers.MustMatchers
 
-import com.blogspot.nhu313.tictactoe.player.MockPlayer
+import com.blogspot.nhu313.tictactoe.mock.{MockPlayer, MockIO}
 
 class GameSpec extends FunSpec with BeforeAndAfter with MustMatchers{
   var io: MockIO = null
