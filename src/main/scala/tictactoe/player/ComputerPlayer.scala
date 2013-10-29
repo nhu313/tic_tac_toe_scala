@@ -12,10 +12,12 @@ class ComputerPlayer(val name: String, val marker: Marker) extends Player {
     var highestScoreMove = Tuple2(-100, -10000)
     for (x <- board.availableMoves) {
       board.mark(x, player)
+
       var moveScore = score(player, board, depth)
       if (moveScore > highestScoreMove._2){
         highestScoreMove = Tuple2(x, moveScore)
       }
+
       board.clear(x)
     }
     return highestScoreMove

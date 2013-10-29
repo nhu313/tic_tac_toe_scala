@@ -20,12 +20,13 @@ class TicTacToeUI {
   def userInput() = io.readString()
 
   private def buildGameTypes(gameTypes: Array[Tuple2[String, String]]): String = {
-    var content = ""
+    var content = new StringBuilder
     for(i <- 0 until gameTypes.length){
       var playerTypes = gameTypes(i)
-      content = content + (i + 1) + " - " + playerTypes._1 + " vs " + playerTypes._2 + "\n"
+      content.append((i + 1) + " - ")
+      content.append(playerTypes._1 + " vs " + playerTypes._2 + "\n")
     }
-    return content
+    return content.toString()
   }
 
   def displayInvalidGameType(){

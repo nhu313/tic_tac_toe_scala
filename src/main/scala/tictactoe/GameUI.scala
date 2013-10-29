@@ -25,19 +25,22 @@ class GameUI {
   }
 
   private def buildBoard(board: Board): String = {
-    var string = ""
+    var string = new StringBuilder()
     val squares = board.squares.zipWithIndex
 
     for(x <- squares){
       val value = if (x._1 == Marker.NONE) x._2 else x._1
-
-      string = string + " | " + value
-      if ((x._2 + 1) % board.size == 0){
-        string = string + " |\n"
-      }
+      string.append(" | " + value)
+      addRowSeparator(x._2, board.size, string)
     }
 
-    return string
+    return string.toString()
+  }
+
+  private def addRowSeparator(index: Int, boardSize: Int, string: StringBuilder){
+    if ((index + 1) % boardSize == 0){
+      string.append(" |\n")
+    }
   }
 
   private def playerInfo(player: Player): String = {
