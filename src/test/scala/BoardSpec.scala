@@ -31,20 +31,10 @@ class BoardSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     }
   }
 
-  describe("Marking the board") {
-
-    it("marks the board with the value when the square is empty") {
-      val move = 3
-      board.mark(move, playerMarker)
-      board.squares must equal (Array(NONE, NONE, NONE, playerMarker))
-    }
-
-    // it("when the square is taken"){
-    //   val move = 3
-    //   board.mark(move, 'x') must throws(IllegalArgumentException)
-    // }
-    //it("when the move is under the lower bound limit")
-    //it("when the move is over the greater bound limit")
+  it("marks the board with the value passed in") {
+    val move = 3
+    board.mark(move, playerMarker)
+    board.squares must equal (Array(NONE, NONE, NONE, playerMarker))
   }
 
   describe("Full board") {

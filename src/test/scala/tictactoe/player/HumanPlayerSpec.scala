@@ -6,7 +6,7 @@ import com.blogspot.nhu313.tictactoe.{Marker, Board, IO, MockIO}
 
 class HumanPlayerSpec extends FunSpec with BeforeAndAfter with MustMatchers{
 
-  val player = new HumanPlayer("Human", Marker.X)
+  var player: HumanPlayer = null
   val board = new Board(2)
   var io: MockIO = null
   val validMove = 1
@@ -14,6 +14,7 @@ class HumanPlayerSpec extends FunSpec with BeforeAndAfter with MustMatchers{
   before {
     io = new MockIO
     IO.io = io
+    player = new HumanPlayer("Human", Marker.X)
   }
 
   it("returns moves when input is valid"){
@@ -27,5 +28,4 @@ class HumanPlayerSpec extends FunSpec with BeforeAndAfter with MustMatchers{
     player.move(board)
     io.contents must include ("Invalid move. Please select another move.")
   }
-
 }
