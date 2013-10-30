@@ -7,7 +7,5 @@ trait IO {
 }
 
 object IO {
-  var io: IO = null
-
-  def apply(): IO = if (io == null) new ConsoleIO() else io
+  def apply() = new ConsoleIO
 }

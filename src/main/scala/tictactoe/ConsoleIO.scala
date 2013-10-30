@@ -10,7 +10,7 @@ class ConsoleIO extends IO {
       readInt()
     } catch {
       case e: NumberFormatException =>
-        println("Unable to process the number. Please try again.")
+        println("Please enter a number.")
         readInteger()
     }
   }
