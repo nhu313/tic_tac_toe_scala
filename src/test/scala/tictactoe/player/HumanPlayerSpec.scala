@@ -15,8 +15,7 @@ class HumanPlayerSpec extends FunSpec with BeforeAndAfter with MustMatchers{
 
   before {
     io = new MockIO
-    IO.io = io
-    player = new HumanPlayer("Human", Marker.X)
+    player = new HumanPlayer("Human", Marker.X, io)
   }
 
   it("returns moves when input is valid"){

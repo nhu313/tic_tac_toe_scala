@@ -7,7 +7,7 @@ import com.blogspot.nhu313.tictactoe.player.{ComputerPlayer, HumanPlayer}
 
 class GameFactorySpec extends FunSpec with BeforeAndAfter with MustMatchers{
 
-  private val gameFactory = new GameFactory
+  private val gameFactory = new GameFactory(null)
 
   it("has 4 game types") {
     val expectedTypes = Array(Tuple2("Computer", "Computer"),
@@ -51,7 +51,7 @@ class GameFactorySpec extends FunSpec with BeforeAndAfter with MustMatchers{
     }
   }
 
-  describe("Valid type"){
+  describe("Valid game type"){
     it("when selection is smaller than the smallest selection"){
       assert(gameFactory.isValidType(0) == false)
     }

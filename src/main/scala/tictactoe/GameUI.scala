@@ -1,8 +1,6 @@
 package com.blogspot.nhu313.tictactoe
 
-class GameUI {
-
-  private val io = IO()
+class GameUI(val io: IO) {
 
   def displayPlayerTurn(player: Player){
     io.display(playerInfo(player) + ", please select a square:")

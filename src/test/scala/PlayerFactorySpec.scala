@@ -6,7 +6,7 @@ import org.scalatest.matchers.MustMatchers
 import com.blogspot.nhu313.tictactoe.player.{HumanPlayer, ComputerPlayer}
 
 class PlayerFactorySpec extends FunSpec with BeforeAndAfter with MustMatchers{
-  private val playerFactory = new PlayerFactory
+  private val playerFactory = new PlayerFactory(null)
 
   it("returns player types") {
     playerFactory.types must equal (Array("Computer", "Human"))

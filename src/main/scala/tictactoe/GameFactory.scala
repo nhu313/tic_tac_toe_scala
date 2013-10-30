@@ -1,8 +1,8 @@
 package com.blogspot.nhu313.tictactoe
 
-class GameFactory {
+class GameFactory(val io: IO) {
 
-  private val playerFactory = new PlayerFactory
+  private val playerFactory = new PlayerFactory(io)
 
   def isValidType(selection: Int) = selection > 0 && selection <= types.length
 
@@ -17,6 +17,6 @@ class GameFactory {
     val playerTypes = types()(gameType - 1)
     val player1 = playerFactory.create(playerTypes._1, Marker.X)
     val player2 = playerFactory.create(playerTypes._2, Marker.O)
-    new Game(Array(player1, player2))
+    new Game(Array(player1, player2), io)
   }
 }

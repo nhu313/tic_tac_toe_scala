@@ -14,8 +14,7 @@ class GameSpec extends FunSpec with BeforeAndAfter with MustMatchers{
 
   before{
     io = new MockIO
-    IO.io = io
-    game = new Game(Array[Player](player1, player2))
+    game = new Game(Array[Player](player1, player2), io)
     board = game.board
   }
 

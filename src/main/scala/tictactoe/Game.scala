@@ -1,8 +1,8 @@
 package com.blogspot.nhu313.tictactoe
 
-class Game(val players: Array[Player]) {
+class Game(val players: Array[Player], val io: IO) {
   private val rules = new Rules
-  private val ui = new GameUI
+  private val ui = new GameUI(io)
   private var currentPlayer = players(0)
   val board = new Board(3)
 

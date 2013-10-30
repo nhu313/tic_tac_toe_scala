@@ -8,15 +8,15 @@ import com.blogspot.nhu313.tictactoe.mock.{MockIO, MockGameFactory}
 
 class TicTacToeSpec extends FunSpec with EasyMockSugar with BeforeAndAfter with MustMatchers{
   var io: MockIO = null
-  var mockGame = niceMock[Game]
+  var mockGame: Game = null
   var mockGameFactory: MockGameFactory = null
   var ticTacToe: TicTacToe = null
 
   before{
-    io = new MockIO
-    IO.io = io
+    mockGame = mock[Game]
     mockGameFactory = new MockGameFactory(mockGame)
-    ticTacToe = new TicTacToe(mockGameFactory)
+    io = new MockIO
+    ticTacToe = new TicTacToe(mockGameFactory, io)
   }
 
   it("displays a welcome message"){
@@ -67,5 +67,19 @@ class TicTacToeSpec extends FunSpec with EasyMockSugar with BeforeAndAfter with 
       ticTacToe.start
       mockGameFactory.gameTypes.size must equal (1)
     }
+  }
+
+  it("starts the game"){
+    // mockGame.play
+    // expectLastCall.atLeastOnce()
+    // replay(mockGame)
+    expecting {
+      mockGame.play
+      lastCall.times(1)
+    }
+    whenExecuting(mockGame) {
+      ticTacToe.start
+   }
+   // verify(mockGame)
   }
 }

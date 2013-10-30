@@ -1,7 +1,6 @@
 package com.blogspot.nhu313.tictactoe
 
-class TicTacToeUI {
-  private val io = IO()
+class TicTacToeUI(val io: IO) {
 
   def displayWelcomeMessage() {
     io.display("Let's play some Tic Tac Toe!\n")

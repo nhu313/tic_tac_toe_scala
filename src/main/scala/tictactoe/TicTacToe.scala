@@ -1,7 +1,7 @@
 package com.blogspot.nhu313.tictactoe
 
-class TicTacToe(val gameFactory: GameFactory) {
-  private val ui = new TicTacToeUI
+class TicTacToe(val gameFactory: GameFactory, val io: IO) {
+  private val ui = new TicTacToeUI(io)
   private val ContinuePlaying = "y"
   var continue = ContinuePlaying
 

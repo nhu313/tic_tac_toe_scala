@@ -14,59 +14,63 @@ class RulesSpec extends FunSpec with BeforeAndAfter with MustMatchers{
   }
 
   describe("Winner") {
-    it("doesn't have a winner when board is empty") {
-      rules.winner(board) must equal (None)
+    describe("no winner") {
+      it("when board is empty") {
+        rules.winner(board) must equal (None)
+      }
+
+      it("when the board is partially mark"){
+        board.mark(0, player)
+        rules.winner(board) must equal (None)
+      }
+
+      it("when player missed one square"){
+        // x  x  0
+        // x  0  x
+        // 0  x  x
+
+        board = new Board(3)
+        markBoard(Array(0, 1, 3, 5, 7, 8), player)
+        rules.winner(board) must equal (None)
+      }
+
+      it("when it's a draw"){
+        board = new Board(3)
+        BoardStateHelper.setDraw(board)
+        rules.winner(board) must equal (None)
+      }
     }
 
-    it("doesn't have a winner when the board is partially mark"){
-      board.mark(0, player)
-      rules.winner(board) must equal (None)
-    }
+    describe("has a winner"){
+      it("when player marks the first row"){
+        markBoard(Array(0, 1), player)
+        rules.winner(board) must equal (Some(player))
+      }
 
-    it("has a winner when player marks the first row"){
-      markBoard(Array(0, 1), player)
-      rules.winner(board) must equal (Some(player))
-    }
+      it("when player marks the last row"){
+        markBoard(Array(2, 3), player)
+        rules.winner(board) must equal (Some(player))
+      }
 
-    it("has a winner when player marks the last row"){
-      markBoard(Array(2, 3), player)
-      rules.winner(board) must equal (Some(player))
-    }
+      it("when player marks the first column"){
+        markBoard(Array(0, 2), player)
+        rules.winner(board) must equal (Some(player))
+      }
 
-    it("has a winner when player marks the first column"){
-      markBoard(Array(0, 2), player)
-      rules.winner(board) must equal (Some(player))
-    }
+      it("when player marks the last column"){
+        markBoard(Array(1, 3), player)
+        rules.winner(board) must equal (Some(player))
+      }
 
-    it("has a winner when player marks the last column"){
-      markBoard(Array(1, 3), player)
-      rules.winner(board) must equal (Some(player))
-    }
+      it("when player marks the diagonal from top left to right"){
+        markBoard(Array(0, 3), player)
+        rules.winner(board) must equal (Some(player))
+      }
 
-    it("has a winner when player marks the diagonal from top left to right"){
-      markBoard(Array(0, 3), player)
-      rules.winner(board) must equal (Some(player))
-    }
-
-    it("has a winner when player marks the diagonal from right to left"){
-      markBoard(Array(1, 2), player)
-      rules.winner(board) must equal (Some(player))
-    }
-
-    it("doesn't have a winner when player missed one square"){
-      // x  x  0
-      // x  0  x
-      // 0  x  x
-
-      board = new Board(3)
-      markBoard(Array(0, 1, 3, 5, 7, 8), player)
-      rules.winner(board) must equal (None)
-    }
-
-    it("doesn't have a winner when it's a draw"){
-      board = new Board(3)
-      BoardStateHelper.setDraw(board)
-      rules.winner(board) must equal (None)
+      it("when player marks the diagonal from right to left"){
+        markBoard(Array(1, 2), player)
+        rules.winner(board) must equal (Some(player))
+      }
     }
   }
 
@@ -90,7 +94,6 @@ class RulesSpec extends FunSpec with BeforeAndAfter with MustMatchers{
       BoardStateHelper.setDraw(board)
       rules.isGameOver(board) must be (true)
     }
-
   }
 
   private def markBoard(moves: Array[Int], marker: Marker){

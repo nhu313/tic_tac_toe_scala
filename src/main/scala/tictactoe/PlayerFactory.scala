@@ -2,7 +2,7 @@ package com.blogspot.nhu313.tictactoe
 
 import com.blogspot.nhu313.tictactoe.player.{ComputerPlayer, HumanPlayer}
 
-class PlayerFactory {
+class PlayerFactory(val io: IO) {
 
   val Computer = "Computer"
   val Human = "Human"
@@ -11,7 +11,7 @@ class PlayerFactory {
 
   def create(playerType: String, marker: Marker) = playerType match {
     case Computer => new ComputerPlayer(Computer, marker)
-    case Human => new HumanPlayer("Player", marker)
+    case Human => new HumanPlayer("Player", marker, io)
   }
 }
 
